@@ -285,30 +285,36 @@
 
 <!-- Contact -->
 <section id="contact" class="py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        
-        <!-- Teks kiri -->
-        <div class="col-md-6 mb-4 mb-md-0">
-          <h3 class="fw-bold text-danger">Selalu dapatkan<br>kabar terbaru<br>dari kami!</h3>
-        </div>
-        
-        <!-- Form kanan -->
-        <div class="col-md-6">
-          <form id="contactForm">
-            <div class="mb-3">
-              <input type="text" class="form-control border-0 border-bottom rounded-0" placeholder="Tuliskan nama kamu" required style="border-color: rgb(255, 255, 255);">
-            </div>
-            <div class="mb-4">
-              <input type="email" class="form-control border-0 border-bottom rounded-0" placeholder="Tuliskan alamat e-mail kamu" required style="border-color: rgb(255, 255, 255);">
-            </div>
-            <button type="submit" class="btn btn-outline-danger rounded-pill px-4 py-2 fw-bold">Berlangganan Sekarang</button>
-          </form>
-        </div>
-  
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Teks kiri -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <h3 class="fw-bold text-danger">Selalu dapatkan<br>kabar terbaru<br>dari kami!</h3>
       </div>
+      
+      <!-- Form kanan -->
+      <div class="col-md-6">
+        <form id="subscribeForm">
+          <div class="mb-3">
+            <input type="text" class="form-control border-0 border-bottom rounded-0" placeholder="Tuliskan nama kamu" required style="border-color: rgb(255, 255, 255);">
+          </div>
+          <div class="mb-4">
+            <input type="email" class="form-control border-0 border-bottom rounded-0" placeholder="Tuliskan alamat e-mail kamu" required style="border-color: rgb(255, 255, 255);">
+          </div>
+          <button type="submit" class="btn btn-outline-danger rounded-pill px-4 py-2 fw-bold">Berlangganan Sekarang</button>
+        </form>
+        
+        <!-- Pesan Terima Kasih -->
+        <div id="thanksMessage" style="display: none; color: green; font-size: 16px;">
+          <p>Terima kasih telah berlangganan!</p>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
 <!-- Footer -->
 <footer class="footer-section py-5" style="background-color: #aabc00; color: white;">
@@ -354,12 +360,17 @@
     </div>
   </footer>
 
-<script>
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      alert('Terima kasih sudah berlangganan!');
+  <script>
+    document.getElementById("subscribeForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Mencegah halaman reload
+      this.reset(); // Mengosongkan form
+      document.getElementById("thanksMessage").style.display = "block"; // Menampilkan pesan terima kasih
+      document.querySelector("#subscribeForm button").disabled = true; // Menonaktifkan tombol setelah submit
+      document.querySelector("#subscribeForm button").textContent = "Terima Kasih!"; // Mengubah teks tombol
     });
-  </script>
+</script>
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/scripts.js"></script>

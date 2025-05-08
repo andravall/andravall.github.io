@@ -11117,3 +11117,17 @@ blockquote cite {
 .carousel-item.active {
   display: flex;
 }
+
+#thanksMessage {
+  color: green;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* Styling Tombol Setelah Submit */
+#subscribeForm button:disabled {
+  background-color: #ffb6b6; 
+  cursor: not-allowed;
+  color: #fff;
+  border: none;
+}
